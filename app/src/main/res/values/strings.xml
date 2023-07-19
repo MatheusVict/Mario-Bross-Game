@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MarioGame</string>
+    <string name="app_name">Super Mario bross</string>
     <string name="txt_challage_tittle">Advinhe um número\nentre 0 e 10</string>
     <string name="txt_question">Qual o seu palpite?</string>
     <string name="txt_button_play">PLAY</string>
