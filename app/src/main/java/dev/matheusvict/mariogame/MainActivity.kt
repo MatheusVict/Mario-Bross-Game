@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
+        binding.surpriseNumber.setImageResource(R.drawable.bloco)
+
         binding.btnPlay.setOnClickListener { view ->
             val typedNumber = binding.replyInput.text.toString()
             if (typedNumber.isEmpty()) {
@@ -48,45 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getImageFromNumber(randomNumber: Int): Int {
         setImagesForList()
-        val img = when (randomNumber) {
-            0 -> imgsList[0]
-
-
-            1 -> imgsList[1]
-
-
-            2 -> imgsList[2]
-
-
-            3 -> imgsList[3]
-
-
-            4 -> imgsList[4]
-
-
-            5 -> imgsList[5]
-
-
-            6 -> imgsList[6]
-
-
-            7 -> imgsList[7]
-
-
-            8 -> imgsList[8]
-
-
-            9 -> imgsList[9]
-
-
-            10 -> imgsList[10]
-
-
-            else -> imgsList[11]
-
-
-        }
-        return img
+        return imgsList[randomNumber.coerceIn(0, imgsList.size - 1)]
     }
 
     private fun setImagesForList() {
@@ -114,14 +79,13 @@ class MainActivity : AppCompatActivity() {
         imgNumber: Int
     ) {
         if (typedNumber != randomNumber) {
-            binding.surpriseNumber.setBackgroundResource(R.drawable.bloco)
             message(view, "Você errou! tente novamente!", "#FF0000")
             progress += 30
             binding.linearProgressIndicator.setProgress(progress, true)
         } else {
             message(view, "Parabéns você acertou!", "#2D9031")
             progress -= 120
-            binding.surpriseNumber.setBackgroundResource(imgNumber)
+            binding.surpriseNumber.setImageResource(imgNumber)
             binding.replyInput.setText("")
             binding.linearProgressIndicator.setProgress(progress, true)
             progress = 0
@@ -138,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         binding.replyInput.setText("")
         progress = 0
         binding.linearProgressIndicator.setProgress(progress, true)
+        binding.surpriseNumber.setImageResource(R.drawable.bloco)
     }
 
     private fun message(view: View, message: String, color: String) {
