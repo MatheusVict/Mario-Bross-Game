@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private var numberList: MutableList<Int> = mutableListOf()
     private val imgsList: MutableList<Int> = mutableListOf()
     private var progress = 0
+    private var wins = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -89,6 +90,8 @@ class MainActivity : AppCompatActivity() {
             binding.replyInput.setText("")
             binding.linearProgressIndicator.setProgress(progress, true)
             progress = 0
+
+            addWin()
         }
 
         if (progress > 90) {
@@ -96,6 +99,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    private fun addWin() {
+        wins ++
+        binding.playerWins.text = "${getString(R.string.txt_wins)} $wins"
     }
 
     private fun resetAll() {

@@ -4,4 +4,5 @@
     <string name="txt_question">Qual o seu palpite?</string>
     <string name="txt_button_play">PLAY</string>
     <string name="txt_reset_button">RESET</string>
+    <string name="txt_wins">Vitórias:</string>
 </resources>

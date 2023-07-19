@@ -7,6 +7,23 @@
     android:background="@drawable/bg"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/playerWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="10dp"
+        android:text="@string/txt_wins"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toTopOf="@id/linearProgressIndicator"
+        app:layout_constraintBottom_toTopOf="@id/linearProgressIndicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/linearProgressIndicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/linearProgressIndicator"
         android:layout_width="200dp"
